@@ -6,8 +6,14 @@ let gameMechanicsSection = document.querySelector('.game');
 
 // Player & Computer icons + score + title + hands //
 
+let computerIcon = document.getElementsByClassName('computer-image');
+let playerIcon = document.getElementsByClassName('player-image');
 let players = document.querySelector('.container');
 let hands = document.querySelector('.container-two');
+
+// Image change on player & computer wins //
+
+let win = false;
 
 // Push Play button to fade in & out sections //
 
@@ -27,8 +33,8 @@ document.getElementById('play').addEventListener('click', function () {
 
 function Start() {
 
-    let Playerscore = document.querySelector('.Player h5');
-    let Computerscore = document.querySelector('.Computer h5');
+    let playerScore = document.querySelector('.Player h5');
+    let computerScore = document.querySelector('.Computer h5');
     let announcement = document.querySelector('.result');
     let playerHand = document.querySelector('.img-left');
     let computerHand = document.querySelector('.img-bigger');
@@ -51,6 +57,8 @@ function Start() {
                 let randomize = Math.round(Math.random() * 4);
                 let pcchoice = computerOptions[randomize];
 
+
+
                 compare(this.textContent, pcchoice);
                 playerHand.src = `./hands/${this.textContent}.png`;
                 computerHand.src = `./hands/${pcchoice}.png`;
@@ -62,136 +70,186 @@ function Start() {
 
     function scores() {
 
-        Playerscore.textContent = Pscore.toString();
-        Computerscore.textContent = Mpcscore.toString();
+        playerScore.textContent = Pscore.toString();
+        computerScore.textContent = Mpcscore.toString();
     }
 
     // Compare hands Player VS Computer //
 
-    function compare(playerchoice, pcchoice) {
+    function Playerwins (){
 
-        let playerIcon = document.getElementsByClassName('player-image');
-        let computerIcon = document.getElementsByClassName('computer-image');
+        if (win) {
+            computerIcon[0].src = 'other/brokencomputer.png';
+        }
 
+        else {
+            playerIcon[0].src = 'other/sadplayer.png';
+        }
+    }
 
-        if (playerchoice === pcchoice) {
+    function compare(playerChoice, pcchoice) {
+
+        computerIcon[0].src = 'other/computer.png';
+        playerIcon[0].src = 'other/player.png';
+
+        if (playerChoice === pcchoice) {
             announcement.textContent = 'It is a tie';
             return;
         }
 
-        if (playerchoice === 'rock') {
+        if (playerChoice === 'rock') {
             if (pcchoice === 'scissors') {
                 Pscore++;
                 announcement.textContent = 'You win';
+                win = true;
                 scores();
+                Playerwins();
                 return;
             } else if (pcchoice === 'paper') {
                 Mpcscore++;
                 announcement.textContent = 'You lose';
+                win = false;
                 scores();
+                Playerwins();
                 return;
             } else if (pcchoice === 'lizard') {
                 Pscore++;
                 announcement.textContent = 'You win';
+                win = true;
                 scores();
+                Playerwins();
                 return;
             } else {
                 Mpcscore++;
                 announcement.textContent = 'You lose';
+                win = false;
                 scores();
+                Playerwins();
                 return;
             }
         }
 
-        if (playerchoice === 'paper') {
+        if (playerChoice === 'paper') {
             if (pcchoice === 'scissors') {
                 Mpcscore++;
                 announcement.textContent = 'You lose';
+                win = false;
                 scores();
+                Playerwins();
                 return;
             } else if (pcchoice === 'rock') {
                 Pscore++;
                 announcement.textContent = 'You win';
+                win = true;
                 scores();
+                Playerwins();
                 return;
             } else if (pcchoice === 'lizard') {
                 Mpcscore++;
                 announcement.textContent = 'You lose';
+                win = false;
                 scores();
+                Playerwins();
                 return;
             } else {
                 Pscore++;
                 announcement.textContent = 'You win';
+                win = true;
                 scores();
+                Playerwins();
                 return;
             }
         }
 
-        if (playerchoice === 'scissors') {
+        if (playerChoice === 'scissors') {
             if (pcchoice === 'paper') {
                 Pscore++;
                 announcement.textContent = 'You win';
+                win = true;
                 scores();
+                Playerwins();
                 return;
             } else if (pcchoice === 'rock') {
                 Mpcscore++;
                 announcement.textContent = 'You lose';
+                win = false;
                 scores();
+                Playerwins();
                 return;
             } else if (pcchoice === 'lizard') {
                 Pscore++;
                 announcement.textContent = 'You win';
+                win = true;
                 scores();
+                Playerwins();
                 return;
             } else {
                 Mpcscore++;
                 announcement.textContent = 'You lose';
+                win = false;
                 scores();
+                Playerwins();
                 return;
             }
         }
 
-        if (playerchoice === 'lizard') {
+        if (playerChoice === 'lizard') {
             if (pcchoice === 'scissors') {
                 Mpcscore++;
                 announcement.textContent = 'You lose';
+                win = false;
                 scores();
+                Playerwins();
                 return;
             } else if (pcchoice === 'paper') {
                 Pscore++;
                 announcement.textContent = 'You win';
+                win = true;
                 scores();
+                Playerwins();
                 return;
             } else if (pcchoice === 'rock') {
                 Mpcscore++;
                 announcement.textContent = 'You lose';
+                win = false;
                 scores();
+                Playerwins();
                 return;
             } else {
                 Pscore++;
                 announcement.textContent = 'You win';
+                win = true;
                 scores();
+                Playerwins();
                 return;
             }
         }
 
-        if (playerchoice === 'spock') {
+        if (playerChoice === 'spock') {
             if (pcchoice === 'scissors') {
                 Pscore++;
                 announcement.textContent = 'You win';
+                win = true;
                 scores();
+                Playerwins();
             } else if (pcchoice === 'paper') {
                 Mpcscore++;
                 announcement.textContent = 'You lose';
+                win = false;
                 scores();
+                Playerwins();
             } else if (pcchoice === 'lizard') {
                 Mpcscore++;
                 announcement.textContent = 'You lose';
+                win = false;
                 scores();
+                Playerwins();
             } else {
                 Pscore++;
                 announcement.textContent = 'You win';
+                win = true;
                 scores();
+                Playerwins();
             }
         }
 
@@ -221,11 +279,16 @@ function Start() {
     // Reset button //
 
     document.getElementById('reset').addEventListener('click', function () {
-        Playerscore.textContent = '0';
-        Computerscore.textContent = '0';
+        playerScore.textContent = '0';
+        computerScore.textContent = '0';
+        Mpcscore = 0;
+        Pscore = 0;
         announcement.textContent = "Live results";
-        playerHand.textContent = 'hands/rock.png';
-        computerHand.textContent = 'hands/rock.png';
+        playerHand.src = 'hands/rock.png';
+        computerHand.src = 'hands/rock.png';
+        computerIcon[0].src = 'other/computer.png';
+        playerIcon[0].src = 'other/player.png';
+
     })
 
 }
