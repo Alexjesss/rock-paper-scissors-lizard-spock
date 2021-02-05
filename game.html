@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/game.css" type="text/css">
+    <title>Stupid Big bang theory game</title>
+</head>
+<body>
+
+<!-- BEGIN SECTION 1 -->
+
+<section class="one container-fluid">
+    <div class="main">
+        <h1>Welcome player!</h1>
+        <button class="button" id="play">Let's play!</button>
+    </div>
+</section>
+
+<!-- BEGIN SECTION 2 -->
+
+<section class="two container-fluid">
+    <div class="container">
+        <div class="Player">
+            <img class='player-image' src="other/player.png" alt="player">
+            <h3>Player</h3>
+            <h5 class="text-center">0</h5>
+        </div>
+        <h1 class="result">Live results</h1>
+        <div class="Computer">
+            <img class='computer-image' src="other/computer.png" alt="player">
+            <h3>Computer</h3>
+            <h5 class="text-center">0</h5>
+        </div>
+    </div>
+    <div class="container-two hands">
+        <img class='img-left' src="hands/rock.png" alt="player">
+        <img class='img-bigger' src="hands/rock.png" alt="player"></div>
+</section>
+
+<!-- BEGIN SECTION THREE -->
+
+<section class="three container-fluid">
+
+    <div class="game">
+        <div class="align">
+            <img class="img" src="hands/rock.png" alt="rock">
+            <button class="button Rock" type="button">rock</button>
+        </div>
+
+        <div class="align">
+            <img class="img" src="hands/paper.png" alt="paper">
+            <button class="button" type="button">paper</button>
+        </div>
+
+        <div class="align">
+            <img class='img' src="hands/scissors.png" alt="scissors">
+            <button class="button" type="button">scissors</button>
+        </div>
+
+        <div class="align">
+            <img class='img' src="hands/lizard.png" alt="lizard">
+            <button class="button" type="button">lizard</button>
+        </div>
+
+        <div class="align">
+            <img class='img' src="hands/spock.png" alt="spock">
+            <button class="button" type="button">spock</button>
+        </div>
+    </div>
+    <div class="Reset">
+        <button class="button reset-button" type="button" id="reset">Reset</button>
+    </div>
+
+</section>
+
+
+<script type="text/javascript" src="game.js"></script>
+</body>
+</html>
